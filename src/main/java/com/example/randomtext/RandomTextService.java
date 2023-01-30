@@ -1,6 +1,7 @@
 package com.example.randomtext;
 
 import edu.duke.FileResource;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,9 @@ import static com.example.randomtext.Constants.DATA_FOLDER;
 
 @Component
 @Slf4j
+@AllArgsConstructor
 public class RandomTextService {
-    //private final
+    private final MarkovZero markov;
     public String readSourceString(String fileName) throws URISyntaxException {
         log.info("got fileName {}", fileName);
         URL res = getClass().getClassLoader().getResource(DATA_FOLDER + fileName);
@@ -23,10 +25,16 @@ public class RandomTextService {
         return fileResource.asString();
     }
 
-    public String generateOutputString(String inputString, int length) {
+    public String generateOutputString(String inputString, int length, Integer seed) {
+        if (seed != null) {
+            setRandom(seed);
+        }
         inputString = inputString.replace('\n', ' ');
-        MarkovZero markov = new MarkovZero();
         markov.setTraining(inputString);
         return markov.getRandomText(length);
+    }
+
+    private void setRandom(int seed) {
+        markov.setRandom(seed);
     }
 }

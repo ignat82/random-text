@@ -19,6 +19,7 @@ public class MainPageForm {
     private String generatedText;
     @Pattern(regexp = "[0-9]+", message = "input the whole number")
     private String lengthOfOutput;
+    private String seed;
 
     @RequiredArgsConstructor
     @Getter

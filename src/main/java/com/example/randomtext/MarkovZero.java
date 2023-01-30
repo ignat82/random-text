@@ -1,10 +1,12 @@
 package com.example.randomtext;
 
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @NoArgsConstructor
+@Component
 public class MarkovZero {
     private String myText;
 	private Random myRandom = new Random();

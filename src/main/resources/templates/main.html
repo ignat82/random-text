@@ -21,8 +21,16 @@
            th:if="${#fields.hasErrors('lengthOfOutput')}"
            th:errors="*{lengthOfOutput}"></pre>
     </label><br><br>
+    <label>seed for random generator consistency<br>
+        <input type="text" width="200" th:field="*{seed}">
+        <pre th:style="'color:red;'"
+             th:if="${#fields.hasErrors('lengthOfOutput')}"
+             th:errors="*{seed}"></pre>
+    </label><br><br>
     <br><input type="submit" value="Submit"/><input type="reset" value="Reset"/>
 </form>
+<pre th:text="${mainPageForm.generatedText}" th:style="'color:red;'">
+   generated text</pre><br><br>
 <pre th:text="${mainPageForm.sourceText}" th:style="'color:black;'">
     source text</pre>
 </body>

@@ -32,8 +32,17 @@ public class MainPageController {
             log.info("see no errors :E");
             log.info(bindingResult.toString());
             log.info("sourceFile {}", mainPageForm.getSourceFile().getFileName());
-            mainPageForm.setSourceText(service.readSourceString(mainPageForm.getSourceFile().getFileName()));
+            String sourceText = service.readSourceString(mainPageForm.getSourceFile().getFileName());
+            mainPageForm.setSourceText(sourceText);
+            Integer seed = (mainPageForm.getSeed().isBlank())
+                    ? null
+                    : Integer.parseInt(mainPageForm.getSeed());
+            int lengthOfOutput = Integer.parseInt(mainPageForm.getLengthOfOutput());
+            String outputString = service.generateOutputString(sourceText, lengthOfOutput, seed);
+            log.info("got output string {}", outputString);
+            mainPageForm.setGeneratedText(outputString);
         } else {
+            log.info("got errors");
             bindingResult.getFieldErrors()
                          .forEach(e -> log.error("got validation error {} for field {}",
                                                  e.getDefaultMessage(),
