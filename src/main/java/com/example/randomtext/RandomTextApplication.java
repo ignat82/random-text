@@ -9,5 +9,4 @@ public class RandomTextApplication {
     public static void main(String[] args) {
         SpringApplication.run(RandomTextApplication.class, args);
     }
-
 }

@@ -1,7 +1,9 @@
 package com.example.randomtext;
 
 import edu.duke.FileResource;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MarkovRunner {
     public void runMarkovZero() {
 		FileResource fr = new FileResource();

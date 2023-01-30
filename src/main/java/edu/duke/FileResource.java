@@ -1,5 +1,6 @@
 package edu.duke;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 
@@ -47,6 +48,7 @@ import java.util.Arrays;
  *
  * @author Duke Software Team
  */
+@Slf4j
 public class FileResource {
     private String myPath;
     private String mySource;

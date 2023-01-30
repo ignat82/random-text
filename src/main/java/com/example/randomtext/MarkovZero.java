@@ -1,7 +1,10 @@
 package com.example.randomtext;
 
+import lombok.NoArgsConstructor;
+
 import java.util.Random;
 
+@NoArgsConstructor
 public class MarkovZero {
     private String myText;
 	private Random myRandom = new Random();
@@ -23,7 +26,6 @@ public class MarkovZero {
 			int index = myRandom.nextInt(myText.length());
 			sb.append(myText.charAt(index));
 		}
-
 		return sb.toString();
 	}
 }

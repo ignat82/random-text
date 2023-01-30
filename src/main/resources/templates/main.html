@@ -1,0 +1,29 @@
+<html>
+<head><title>RandomText</title></head>
+<body>
+<h3>Random text generator</h3>
+<pre th:if="${!mainPageForm.sourceTextSet}" th:style="'color:red;'">
+    source text not set. Have you chosen the source file?</pre>
+<form action="#" th:action="@{/random_text}" th:object="${mainPageForm}"
+      method="post">
+    <label>source file</label><br>
+    <div th:each="sourceFile : ${T(com.example.randomtext.web.MainPageForm.SourceFile).values()}">
+        <input type="radio" th:field="*{sourceFile}" th:value="${sourceFile}">
+        <label th:text="${sourceFile.getFileName()}">source file</label>
+        <pre th:style="'color:red;'"
+            th:if="${#fields.hasErrors('sourceFile')}"
+        th:errors="*{sourceFile}"></pre>
+        <br>
+    </div>
+    <label>length of string to be generated<br>
+        <input type="text" width="200" th:field="*{lengthOfOutput}">
+        <pre th:style="'color:red;'"
+           th:if="${#fields.hasErrors('lengthOfOutput')}"
+           th:errors="*{lengthOfOutput}"></pre>
+    </label><br><br>
+    <br><input type="submit" value="Submit"/><input type="reset" value="Reset"/>
+</form>
+<pre th:text="${mainPageForm.sourceText}" th:style="'color:black;'">
+    source text</pre>
+</body>
+</html>
