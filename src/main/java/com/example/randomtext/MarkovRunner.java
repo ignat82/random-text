@@ -1,5 +1,6 @@
 package com.example.randomtext;
 
+import com.example.randomtext.generator.MarkovZero;
 import edu.duke.FileResource;
 import org.springframework.stereotype.Component;
 

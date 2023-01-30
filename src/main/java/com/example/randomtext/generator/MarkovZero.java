@@ -1,4 +1,4 @@
-package com.example.randomtext;
+package com.example.randomtext.generator;
 
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import java.util.Random;
 
 @NoArgsConstructor
 @Component
-public class MarkovZero {
+public class MarkovZero implements Markov {
     private String myText;
 	private Random myRandom = new Random();
 
