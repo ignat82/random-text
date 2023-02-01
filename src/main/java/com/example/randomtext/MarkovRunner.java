@@ -2,15 +2,15 @@ package com.example.randomtext;
 
 import com.example.randomtext.generator.MarkovZero;
 import edu.duke.FileResource;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
 
-@Component
+@RequiredArgsConstructor
 public class MarkovRunner {
+	private final MarkovZero markov;
     public void runMarkovZero() {
 		FileResource fr = new FileResource();
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
-		MarkovZero markov = new MarkovZero();
 		markov.setTraining(st);
 		for(int k=0; k < 3; k++){
 			String text = markov.getRandomText(500);

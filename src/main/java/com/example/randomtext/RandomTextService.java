@@ -2,7 +2,7 @@ package com.example.randomtext;
 
 import com.example.randomtext.generator.Markov;
 import edu.duke.FileResource;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ import static com.example.randomtext.Constants.DATA_FOLDER;
 
 @Component
 @Slf4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class RandomTextService {
     private final Markov markov;
     public String readSourceString(String fileName) throws URISyntaxException {
