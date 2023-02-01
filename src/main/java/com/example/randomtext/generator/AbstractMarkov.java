@@ -1,5 +1,6 @@
 package com.example.randomtext.generator;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -7,8 +8,10 @@ import java.util.List;
 import java.util.Random;
 
 @RequiredArgsConstructor
+@Getter
 public class AbstractMarkov implements Markov {
     private final Random myRandom;
+
     private String myText;
 
     public void setRandom(int seed) {
