@@ -2,6 +2,8 @@ package com.example.randomtext.generator;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @RequiredArgsConstructor
@@ -28,4 +30,21 @@ public class AbstractMarkov implements Markov {
         }
         return sb.toString();
     }
+
+    public List<String> getFollows(String key) {
+        int i = 0;
+        int keyLength = key.length();
+        List<String> follows = new ArrayList<>();
+        while (i < myText.length() - keyLength) {
+            String substring = myText.substring(i, i + keyLength);
+            if (substring.equals(key)) {
+                follows.add(myText.substring(i + keyLength, i + 2 * keyLength));
+                i += key.length();
+            } else {
+                i++;
+            }
+        }
+        return follows;
+    }
+
 }

@@ -26,13 +26,15 @@ public class MainPageController {
     }
 
     @PostMapping(BASE_PATH)
-    public String doPost(@Valid MainPageForm mainPageForm, BindingResult bindingResult) throws URISyntaxException {
+    public String doPost(@Valid MainPageForm mainPageForm,
+                         BindingResult bindingResult) throws URISyntaxException {
         log.info("got form data {}", mainPageForm.toString());
         if (!bindingResult.hasErrors()) {
             log.info("see no errors :E");
             log.info(bindingResult.toString());
-            log.info("sourceFile {}", mainPageForm.getSourceFile().getFileName());
-            String sourceText = service.readSourceString(mainPageForm.getSourceFile().getFileName());
+            String fileName = mainPageForm.getSourceFile().getFileName();
+            log.info("sourceFile {}", fileName);
+            String sourceText = service.readSourceString(fileName);
             mainPageForm.setSourceText(sourceText);
             Integer seed = (mainPageForm.getSeed().isBlank())
                     ? null
