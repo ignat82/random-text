@@ -33,6 +33,7 @@ public class MainPageController {
             log.info("see no errors :E");
             log.info(bindingResult.toString());
             service.setN(Integer.parseInt(mainPageForm.getN()));
+            log.info("n set to {}", service.getN());
             String fileName = mainPageForm.getSourceFile().getFileName();
             log.info("sourceFile {}", fileName);
             String sourceText = service.readSourceString(fileName);

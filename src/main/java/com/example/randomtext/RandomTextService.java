@@ -42,4 +42,8 @@ public class RandomTextService {
     public void setN(int n) {
         markov.setN(n);
     }
+
+    public int getN() {
+        return markov.getN();
+    }
 }
