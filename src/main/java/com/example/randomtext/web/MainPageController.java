@@ -32,9 +32,11 @@ public class MainPageController {
         if (!bindingResult.hasErrors()) {
             log.info("see no errors :E");
             log.info(bindingResult.toString());
+            service.setN(Integer.parseInt(mainPageForm.getN()));
             String fileName = mainPageForm.getSourceFile().getFileName();
             log.info("sourceFile {}", fileName);
             String sourceText = service.readSourceString(fileName);
+            //sourceText = "that's the training text";
             mainPageForm.setSourceText(sourceText);
             Integer seed = (mainPageForm.getSeed().isBlank())
                     ? null

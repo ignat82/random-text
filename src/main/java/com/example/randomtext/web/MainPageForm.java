@@ -20,6 +20,8 @@ public class MainPageForm {
     @Pattern(regexp = "[0-9]+", message = "input the whole number")
     private String lengthOfOutput;
     private String seed;
+    @Pattern(regexp = "[0-9]+", message = "input the whole number")
+    private String n;
 
     @RequiredArgsConstructor
     @Getter

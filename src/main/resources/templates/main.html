@@ -27,6 +27,12 @@
              th:if="${#fields.hasErrors('lengthOfOutput')}"
              th:errors="*{seed}"></pre>
     </label><br><br>
+    <label>model order<br>
+        <input type="text" width="200" th:field="*{n}">
+        <pre th:style="'color:red;'"
+             th:if="${#fields.hasErrors('lengthOfOutput')}"
+             th:errors="*{n}"></pre>
+    </label><br><br>
     <br><input type="submit" value="Submit"/><input type="reset" value="Reset"/>
 </form>
 <pre th:text="${mainPageForm.generatedText}" th:style="'color:red;'">

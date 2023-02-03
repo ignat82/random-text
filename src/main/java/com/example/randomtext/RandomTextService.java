@@ -1,6 +1,6 @@
 package com.example.randomtext;
 
-import com.example.randomtext.generator.Markov;
+import com.example.randomtext.generator.MarkovN;
 import edu.duke.FileResource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import static com.example.randomtext.Constants.DATA_FOLDER;
 @Slf4j
 @RequiredArgsConstructor
 public class RandomTextService {
-    private final Markov markov;
+    private final MarkovN markov;
     public String readSourceString(String fileName) throws URISyntaxException {
         log.info("got fileName {}", fileName);
         URL res = getClass().getClassLoader().getResource(DATA_FOLDER + fileName);
@@ -37,5 +37,9 @@ public class RandomTextService {
 
     private void setRandom(int seed) {
         markov.setRandom(seed);
+    }
+
+    public void setN(int n) {
+        markov.setN(n);
     }
 }

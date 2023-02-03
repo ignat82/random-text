@@ -1,12 +1,12 @@
 package com.example.randomtext;
 
-import com.example.randomtext.generator.MarkovZero;
+import com.example.randomtext.generator.Markov;
 import edu.duke.FileResource;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class MarkovRunner {
-	private final MarkovZero markov;
+	private final Markov markov;
     public void runMarkovZero() {
 		FileResource fr = new FileResource();
 		String st = fr.asString();
